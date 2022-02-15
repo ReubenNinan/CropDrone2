@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+{% static "images" as baseUrl %}
+<!-- <link rel="stylesheet" href="{% static 'plant_2.css' %}"> -->
+<!-- <link rel="stylesheet" href="{% static 'try.js' %}"> -->
+<html lang="en">
+
+{% if user.is_authenticated %}
+<title> {{user_name.user_name}}'s Plants</title>
+<body class="user_cover"> User: {{user_name.user_name}}'s Dashboard </body>
+<button class="button" style="vertical-align:middle"><a href="/"><span> Home </span></a></button>
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+<!-- DropDown Filters -->
+
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+<!-- Beginning of table -->
+<div class="container">
+<table class="table-scroll small-first-col">
+  <thead>
+    <tr>
+		<th class="font_stuff">Plant Name</th>
+		<th class="font_stuff">Plant ID</th>
+		<th class="font_stuff">Location <br>(x, y)</th>
+		<th class="font_stuff">Date</th>
+		<th class="font_stuff">Time</th>
+		<th class="font_stuff">Image</th>
+    </tr>
+  </thead>
+	<tbody class="body-half-screen">
+		{% for dest in dests %}
+				{% if dest.user_name == user.username %}
+					<tr>
+					  <td class="font_stuff">{{dest.plant_name}}</td>
+					  	<td class="font_stuff">#{{dest.plant_id}}</td>					  
+					  <td class="font_stuff">({{dest.X_Coords}}, {{dest.Y_Coords}})</td>
+					  <td class="font_stuff">{{dest.date}}</td>
+					  <td class="font_stuff">{{dest.time}}</td>
+					  <td ><img class="image_style" src="{{dest.img.url}}" alt=""></td>
+					</tr>
+				{% endif %}
+				{% endfor %}
+	</tbody>
+</table>
+</div>
+
+{% else %}
+         <button class="Need_login"><a href="/">Home</a></button>
+         <button class="Need_login"><a href="/accounts/login">Login</a></button>
+ {% endif %}
+
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+<!-- end of table -->
+
+<!-- Scatter Plot -->
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+<!-- Load chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+<script>
+var xyValues = [];
+{% for dest in dests %}
+	{% if dest.user_name == user.username %}
+	xyValues.push({x:{{dest.location_x}}, y:{{dest.location_y}}})
+	{% endif %}
+{% endfor %}
+
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      borderColor: "rgb(32,23,2)",
+      pointBackgroundColor: "rgb(255,255,255)",
+      data: xyValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      xAxes: [{ticks: {min: 0, max:100}}],
+      yAxes: [{ticks: {min: 0, max:100}}],
+
+    }
+  }
+
+});
+</script>
+<p>
+
+	<!-- Drop Down Button -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</div>
+</html>
+

@@ -1,0 +1,147 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.banner {
+  width: 1170px;
+  margin: auto;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/static/img5.png");
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.BAENLogo img {
+  width: 325px;
+  float: left;
+  margin: 25px;
+}
+
+.ECENLogo img {
+  width: 300px;
+  float: right;
+  margin: 25px;
+}
+
+.CropLogo img {
+  width: 200px;
+  float: right;
+  margin: 5px;
+}
+
+.title {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  transform: translateY(20%);
+  text-align: center;
+  color: rgb(255, 251, 251);
+  font-size: 30px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.container {
+  display: block;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 60%;
+  margin: -70px 0 0 660px;
+}
+
+.btn1 {
+  /* Creating the button shape and text aesthetics */
+  width: 90px;
+  height: 50px;
+  left: 120px;
+  border: none;
+  color: white;
+  font-weight: 750;
+  background-color: transparent;
+  border-radius: 15px;
+  font-size: 20px;
+  outline: none;
+  position: relative; /* makes sure the color stays within the button, if not 'relative' it will cover the entire page */
+  z-index: 1;
+}
+
+.btn1:hover {
+  /* deals with text within bubble */
+  cursor: pointer;
+  color: white;
+}
+
+.btn1:before {
+  /* Creating button animation and color*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  opacity: 0;
+  content: "";
+  border-radius: 10px;
+  background-color: #800020;
+}
+
+.btn1:hover:before {
+  /* defining the animation speed and z-index */
+  transition: 0.35s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+}
+
+.btn2 {
+  /* Creating the button shape and text aesthetics */
+  width: 100px;
+  height: 60px;
+  right: 100px;
+  border: none;
+  color: white;
+  font-weight: 750;
+  background-color: transparent;
+  border-radius: 15px;
+  font-size: 20px;
+  outline: none;
+  position: relative; /* makes sure the color stays within the button, if not 'relative' it will cover the entire page */
+  z-index: 1;
+}
+
+.btn2:hover {
+  /* deals with text within bubble */
+  cursor: pointer;
+  color: white;
+}
+
+.btn2:before {
+  /* Creating button animation and color*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  opacity: 0;
+  content: "";
+  border-radius: 10px;
+  background-color: #800020;
+}
+
+.btn2:hover:before {
+  /* defining the animation speed and z-index */
+  transition: 0.35s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+}

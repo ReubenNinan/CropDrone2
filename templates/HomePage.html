@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crop Drone</title>
+    <link rel="stylesheet" href="{%static 'HomePage-style.css'%}" />
+  </head>
+
+  <body>
+    <!-- <div class="banner"> -->
+    <!-- top portion of the site that will host the three logos-->
+    <div class="BAENLogo">
+      <img src="media\DB Pictures\Logos\BAEN_horiz.png" alt="BAEN_Logo" />
+    </div>
+
+    <div class="ECENLogo">
+      <img src="media\DB Pictures\Logos\ECEN_horiz.png" alt="ECEN_Logo" />
+    </div>
+
+    <div class="CropLogo">
+      <img src="media\DB Pictures\Logos\unnamed.png" alt="Crop_Logo" />
+    </div>
+    <!-- </div> -->
+
+    <div class="title">
+      <h1>TEAM 77 - Crop Drone</h1>
+    </div>
+
+    <div class="container">
+      {% if user.is_authenticated %}
+
+      <p style="font-size: 30px; font-weight: bold; color: white; float: middle">
+        Welcome to the Matrix, {{user.username}}.
+      </p>
+
+      <a href="accounts/logout"><button class="btn1">Log Out</button></a>
+
+      <a href="DataPage/{{user.username}}"><button class="btn2">View Data</button></a>
+
+      {% else %}
+      <a href="accounts/login"><button class="btn1">Log In</button></a>
+      <a href="accounts/register"><button class="btn2">Create Account</button></a>
+      {% endif %}
+    </div>
+  </body>
+</html>

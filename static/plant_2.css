@@ -1,0 +1,143 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+/* body {background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);} */
+
+
+.font_stuff {
+font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+font-size:20px;
+  color: #333333;
+}
+.user_cover {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:32px;
+  color: white;
+}
+/* ----------------------------- BOTTOM RIGHT ERROR ----------------------------- */
+ canvas {
+        float: left;
+    }
+    p {
+        overflow: hidden;
+    }
+    .other_font {
+        font-family: 'Lato', sans-serif;
+          font-weight:300;
+          letter-spacing: 2px;
+          font-size:20px;
+          color: white;
+}
+/* ----------------------------- BUTTON ----------------------------- */
+button {
+  float: right;
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:20px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid rgb(0, 0, 0); 
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+/* ----------------------------- End of BUTTON ----------------------------- */
+/* ----------------------------- Image ----------------------------- */
+.image_style {
+    float: center;
+    position:relative;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+/* ----------------------------- Table ----------------------------- */
+.container{
+  padding: 1rem;
+  margin: 1rem;
+}
+.table-scroll{
+  /*width:100%; */
+  display: block;
+  empty-cells: show;
+
+  /* Decoration */
+  border-spacing: 0;
+  border: 1px solid;
+}
+
+.table-scroll thead{
+  background-color: #f1f1f1;
+  position:relative;
+  display: block;
+  width:100%;
+  overflow-y: scroll;
+}
+
+.table-scroll tbody{
+  /* Position */
+  display: block; position:relative;
+  width:100%; overflow-y:scroll;
+  /* Decoration */
+  border-top: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(210,251,221,0.7);
+}
+
+.table-scroll tr{
+  width: 100%;
+  display:flex;
+}
+
+.table-scroll td,.table-scroll th{
+  flex-basis:100%;
+  flex-grow:2;
+  display: block;
+  padding: 1rem;
+  text-align:left;
+}
+
+/* Other options */
+
+.table-scroll.small-first-col td:first-child,
+.table-scroll.small-first-col th:first-child{
+  flex-basis:20%;
+  flex-grow:1;
+}
+
+.table-scroll tbody tr:nth-child(2n){
+  background-color: rgba(227,227,227,0.6);
+}
+
+.body-half-screen{
+  max-height: 35vh;
+}
+
+.small-col{flex-basis:10%;}
+
+/* ----------------------------- END OF TABLE ----------------------------- */
+/* ----------------------------- D3 ScatterPlot ----------------------------- */
+
+
+.label {
+
+  font-family: sans-serif;
+  font-size: 10px;
+  color: white;
+}
+
+text {
+  color: white;
+}
+
+.domain, line {
+  color: white;
+}
+
+.focusLine {
+  shape-rendering: crispEdges;
+  color: white;
+  stroke-width: 1.1;
+  stroke-linecap: butt;
+}

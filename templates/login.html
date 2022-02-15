@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{%static 'Login-style.css'%}">
+</head>
+<body>
+    
+    <form action = "login" method = "post" id = "login"> 
+        {% csrf_token %}
+        <input type = "text" name = "username" placeholder="username"><br>
+        <input type = "password" name = "password" placeholder="password"><br>
+        <button class="btn" type = "submit" form = "login" value = "Submit">Submit</button>    
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+
+    </div>
+
+
+</body>
+</html>
+
+<!--! New Animated Login Screen -->
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="{%static 'Login-style.css'%}">
+
+</head>
+<body>
+<form autocomplete='off' class='form'>
+  <div class='control'>
+    <h1>
+      Sign In
+    </h1>
+
+  </div>
+  <div class='control block-cube block-input'>
+    <input name='username' placeholder='username' type='text'>
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div>
+
+  <div class='control block-cube block-input'>
+    <input name='password' placeholder='password' type='password'>
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div>
+
+  <button class='btn block-cube block-cube-hover' type='submit'>
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='text'>
+      Log In
+    </div>
+  </button>
+
+</form>
+
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+
+</div>
+  
+</body>
+</html> -->

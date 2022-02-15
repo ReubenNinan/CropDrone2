@@ -1,0 +1,35 @@
+{% load static %}
+{% extends 'template/Tables.html'%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title> GPS DATA</title>
+  <link rel="stylesheet" href="{%static 'Table-style.css'%}">
+
+</head>
+
+<body>
+  <table class="content-table">
+    <thead>
+      <tr>
+        <th>X Coordinates</th>
+        <th>Y Coordinates</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for coord in coords %}
+        <tr> {{coord.X_Coords}}</tr>
+        <tr> {{coord.Y_Coords}}</tr>
+        <tr> <img class = "image_style" src = "{{coord.img.url}} alt=" ></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</body>
+
+</html>
