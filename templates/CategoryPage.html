@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="Team77 - 2022">
     <meta name="generator" content="Date Webpage">
-    <title> Drone Data Acquisition Dates </title>
+    {% if user.is_authenticated %}
+    <title> {{user_name.user_name}}'s Acquisition Dates </title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/"> -->
 

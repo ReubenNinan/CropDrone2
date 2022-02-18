@@ -5,23 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
-    <meta
-      name="author"
-      content="Team 77 2021-2022"
-    />
+    <meta name="author" content="Team 77 2021-2022" />
     <meta name="" content="" />
     <title>DataPage</title>
 
-    <link
-      rel="canonical"
-      href=""
-    />
+    <link rel="canonical" href="" />
 
     <!-- Bootstrap core CSS -->
-    <link
-      href="{% static 'DataPage-style.css' %}"
-      rel="stylesheet"
-    />
+    <link href="{% static 'DataPage-style.css' %}" rel="stylesheet" />
 
     <style>
       .bd-placeholder-img {
@@ -66,7 +57,10 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-          <a href="{% url 'HomePage' %}" class="navbar-brand d-flex align-items-center">
+          <a
+            href="{% url 'HomePage' %}"
+            class="navbar-brand d-flex align-items-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -115,25 +109,15 @@
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-
-
+            {% if images|length > 0 %}
             {% for image in images %}
             <div class="col">
               <div class="card shadow-sm">
-                <img src = "{{image.squareImage.url}}" alt = "{{image.altText.url}}">
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c" />
-                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                    Thumbnail
-                  </text>
-                </svg>
-
-                <div class="card-body">
-                  <p class="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
+                <img
+                  src="{{image.squareImage.url}}"
+                  alt="{{image.altText.url}}"
+                />
+                <!-- <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
@@ -153,11 +137,13 @@
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
-
-
+            {% end for %}
+            {% else %}
+            <h2> Error Loading Images :( </h2>
+            {% end if %}
           </div>
         </div>
       </div>
@@ -181,8 +167,6 @@
       </div>
     </footer>
 
-    <script
-      src="{% static 'DataPage-java.js' %}"
-    ></script>
+    <script src="{% static 'DataPage-java.js' %}"></script>
   </body>
 </html>

@@ -60,9 +60,9 @@ def logout(request):
     return redirect("/"); #calling the homepage
 
 # def datapage(request):
-def datapage(request, pk_test):
+# def datapage(request, pk):
 
-    coords = GPSData.objects.all()
-    client = GPSData.objects.filter(user_name=pk_test)
-    # return render(request, 'Tables.html');
-    return render(request, "Tables.html", {"coords": coords})
+#     coords = GPSData.objects.all()
+#     client = GPSData.objects.filter(user_name=pk)
+#     # return render(request, 'Tables.html');
+#     return render(request, "Tables.html", {"coords": coords})

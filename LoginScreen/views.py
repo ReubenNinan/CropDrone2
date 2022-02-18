@@ -1,12 +1,6 @@
 # from django.shortcuts import render
 # from .models import GPSData
 
-# # Create your views here.
-
-# def plants(request, pk_test):
-#     dests = GPSData.objects.all()
-#     customer = GPSData.objects.filter(user_name=pk_test)
-#     return render(request, "DataPage.html", {'dests': dests})
 
 from django.shortcuts import render
 from .models import *
@@ -22,27 +16,25 @@ def HomePage(request):
     return render(request, 'HomePage.html', context)
 
 
-def CategoryPage(request, slug):
-
-    category = Category.objects.get(slug=slug)
-    images = Image.objects.filter(category=category).order_by('-date_created')[:6]
-    # for x in images:
-    #     x.shortDescription = x.description[:130] #I don't think I need a description on this page
-
+def CategoryPage(request):
+    categories = Category.objects.all()
     context = {}
-    context['images'] = images
-    context['category'] = category
+    context['categories'] = categories
 
     return render(request, 'CategoryPage.html', context)
 
 
-def DataPage(request, slug1, slug2):
-
-    category = Category.objects.get(slug=slug1)
-    image = Image.objects.get(slug=slug2)
+def DataPage(request, slug, slug_customer):
+    # customer = Category.objects.get(user_name=slug_customer)
+    category = Category.objects.get(slug=slug)
+    images = Image.objects.filter(category=category)
 
     context = {}
     context['category'] = category
-    context['image'] = image #sending backend of image and category to the front so it's dynamically loaded with each category and image
+    context['image'] = images #sending backend of image and category to the front so it's dynamically loaded with each category and image
 
     return render(request, 'DataPage.html', context)
+
+def Customer(request, slug_customer):
+    obj = User.objects.get(user_name=slug_customer)
+    return render(request, "CategoryPage.html")

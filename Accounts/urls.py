@@ -7,7 +7,7 @@ urlpatterns = [
     path('login', views.login, name = 'login'),
     path('logout', views.logout, name = 'logout'),
     # path('datapage', views.datapage, name = 'datapage'),
-    # path('<str:pk_test>/', views.datapage) #!may be needed!
+    # path('<str:pk>/', views.datapage) #!may be needed!
     ]
 # normal comment
 # ! exclamation comment
