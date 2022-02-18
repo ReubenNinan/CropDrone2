@@ -10,11 +10,21 @@
 # ? question comment
 # // strike through comment
 
+# from django.urls import path
+# from.import views
+
+
+# urlpatterns = [
+#     path('<str:pk_test>/', views.plants),
+
+# ]
+
 from django.urls import path
-from . import views
+from.import views
 
 
 urlpatterns = [
-    path('<str:pk_test>/', views.plants),
-
+path('',views.HomePage, name='HomePage'),
+path('category/<slug:slug>', views.CategoryPage, name='CategoryPage'),
+path('category/<slug:slug1>/<slug:slug2>', views.DataPage, name='DataPage'),
 ]
