@@ -70,10 +70,9 @@
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-      <a class="p-2 link-secondary" href="#">Test Date 1</a>
-      <a class="p-2 link-secondary" href="#">Test Date 2</a>
-      <a class="p-2 link-secondary" href="#">Test Date 3</a>
-      <a class="p-2 link-secondary" href="#">Test Date 4</a>
+      {% for category in categories %}
+      <a class="p-2 link-secondary" href="{% url 'image-date' categeory.slug %}">{{category.title}}</a>
+      {% endfor %}
     </nav>
   </div>
 </div>

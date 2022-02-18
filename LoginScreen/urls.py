@@ -25,6 +25,6 @@ from.import views
 
 urlpatterns = [
 path('',views.HomePage, name='HomePage'),
-path('category/<slug:slug>', views.CategoryPage, name='CategoryPage'),
+path('category/<slug:slug>', views.CategoryPage, name='image-date'),
 path('category/<slug:slug1>/<slug:slug2>', views.DataPage, name='DataPage'),
 ]

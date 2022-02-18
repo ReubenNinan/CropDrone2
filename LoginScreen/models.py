@@ -54,7 +54,7 @@ class Category(models.Model):
 
 class Image(models.Model):
     description = models.TextField(null=True, blank=True)
-    # altText = models.TextField(null=True, blank=True)
+    altText = models.TextField(null=True, blank=True)
     # hashtags = models.CharField(null=True, blank=True, max_length=300)
 
     ##ImageFields

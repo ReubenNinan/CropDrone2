@@ -26,8 +26,8 @@ def CategoryPage(request, slug):
 
     category = Category.objects.get(slug=slug)
     images = Image.objects.filter(category=category).order_by('-date_created')[:6]
-    for x in images:
-        x.shortDescription = x.description[:130]
+    # for x in images:
+    #     x.shortDescription = x.description[:130] #I don't think I need a description on this page
 
     context = {}
     context['images'] = images
@@ -43,6 +43,6 @@ def DataPage(request, slug1, slug2):
 
     context = {}
     context['category'] = category
-    context['image'] = image
+    context['image'] = image #sending backend of image and category to the front so it's dynamically loaded with each category and image
 
     return render(request, 'DataPage.html', context)
