@@ -4,6 +4,7 @@
 
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth.models import User as AuthUserModel
 
 # Create your views here.
 
@@ -36,5 +37,9 @@ def DataPage(request, slug, slug_customer):
     return render(request, 'DataPage.html', context)
 
 def Customer(request, slug_customer):
-    obj = User.objects.get(user_name=slug_customer)
-    return render(request, "CategoryPage.html")
+    obj = AuthUserModel.objects.get(username=request.user.username)
+    context = {
+        'whatevernameyouwanttoacessfromtemaplte':"whatever value you want to pass obj, another dict any thing"
+    }
+    #You would have pass your categories as context
+    return render(request, "CategoryPage.html", context)
