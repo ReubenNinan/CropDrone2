@@ -11,7 +11,6 @@ Once my subsystem is complete I then have to integrate it with the rest of the p
 drone path planning algorithm on the database and help another teammate figure out how to transfer all the data (pictures and coordinates) from the drone's onboard TX2 board
 to the database then be represented on my website.
 
-In total, the project is a crop drone that will remotely take off, detect what crops are out of season and need to be sprayed. Once detenction is complete, it will then head
-back to base, the user will fill the tank with pesticides while the drone is calculating the most efficient path to take to spray the plants and head back for energy purposes.
-The drone is off limits to the project. The drone is already complete, we the students in this capstone are responsible for the computer science portion. How to gather, 
+In total, the project is a crop drone that will remotely take off, detect what crops are out of season and need to be sprayed. Once detection is complete, it will then head
+back to base, the user will fill the tank with pesticides while the drone is calculating the most efficient path to take to spray the plants and head back for efficient energy usage. The drone is off limits to the project. The drone is already complete, we the students in this capstone are responsible for the computer science portion. How to gather, 
 organize, and represent the data to the user.
