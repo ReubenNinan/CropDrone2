@@ -41,4 +41,5 @@ def Customer(request, slug_customer):
     context = {
         'whatevernameyouwanttoacessfromtemaplte':"whatever value you want to pass obj, another dict any thing"
     }
+    #You would have pass your categories as context
     return render(request, "CategoryPage.html", context)
