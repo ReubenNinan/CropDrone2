@@ -68,7 +68,7 @@
     <nav class="nav d-flex justify-content-between">
 
       {% for ImageData in categories %}
-      <a class="p-2 link-secondary" href="{% url 'image-category' category.slug %}">{{ImageData.title}}</a>
+      <a class="p-2 link-secondary h4" href="{% url 'data-page' ImageData.title  %}">{{ImageData.title}}</a>
       {% endfor %}
 
     </nav>
