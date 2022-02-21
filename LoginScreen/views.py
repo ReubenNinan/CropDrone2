@@ -9,7 +9,7 @@ from django.contrib.auth.models import User as AuthUserModel
 # Create your views here.
 
 def HomePage(request):
-    categories = Category.objects.all()
+    categories = ImageData.objects.all()
 
     context = {}
     context['categories'] = categories
@@ -18,17 +18,16 @@ def HomePage(request):
 
 
 def CategoryPage(request):
-    categories = Category.objects.all()
+    categories = ImageData.objects.all()
     context = {}
     context['categories'] = categories
 
     return render(request, 'CategoryPage.html', context)
 
 
-def DataPage(request, slug, slug_customer):
-    # customer = Category.objects.get(user_name=slug_customer)
-    category = Category.objects.get(slug=slug)
-    images = Image.objects.filter(category=category)
+def DataPage(request, slug):
+    category = ImageData.objects.get(slug=slug)
+    images = ImageData.objects.filter(category=category)
 
     context = {}
     context['category'] = category
@@ -39,7 +38,7 @@ def DataPage(request, slug, slug_customer):
 def Customer(request, slug_customer):
     obj = AuthUserModel.objects.get(username=request.user.username)
     context = {
-        'whatevernameyouwanttoacessfromtemaplte':"whatever value you want to pass obj, another dict any thing"
+        'whatevernameyouwanttoacessfromtemplate':"whatever value you want to pass obj, another dict any thing"
     }
     #You would have pass your categories as context
     return render(request, "CategoryPage.html", context)

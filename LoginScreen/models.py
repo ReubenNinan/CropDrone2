@@ -15,17 +15,22 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django_resized import ResizedImageField
-from django.utils import timezone
-from uuid import uuid4
-from django.urls import reverse
+from django.contrib.auth.models import User, auth
 
-class User(models.Model):
-    user_name = models.CharField(max_length=100)
+class ImageData(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
+    title = models.CharField(null=True, blank=True, max_length=200)
+    description = models.TextField(null=True, blank=True)
+    altText = models.TextField(null=True, blank=True)
+    squareImage = ResizedImageField(size=[1000, 1000], crop=['middle', 'center'], default='default_square.jpg', upload_to='DB Pictures')
+    # category = models.ForeignKey(ImageData, null=True, blank=True, on_delete=models.CASCADE)
+
+
 
     #insert way to have user specific .csv link
 
-class Category(models.Model):
-    title = models.CharField(null=True, blank=True, max_length=200)
+#! class Category(models.Model):
+#!     title = models.CharField(null=True, blank=True, max_length=200)
 
     # #Utility Variable
     # uniqueId = models.CharField(null=True,   blank=True, max_length=100)
@@ -55,18 +60,19 @@ class Category(models.Model):
 
 
 
-class Image(models.Model):
-    description = models.TextField(null=True, blank=True)
-    altText = models.TextField(null=True, blank=True)
+#!class Image(models.Model):
+    #!description = models.TextField(null=True, blank=True)
+    #!altText = models.TextField(null=True, blank=True)
+
     # hashtags = models.CharField(null=True, blank=True, max_length=300)
 
     #ImageFields
-    squareImage = ResizedImageField(size=[1000, 1000], crop=['middle', 'center'], default='default_square.jpg', upload_to='DB Pictures')
+    #!squareImage = ResizedImageField(size=[1000, 1000], crop=['middle', 'center'], default='default_square.jpg', upload_to='DB Pictures')
     # landImage = ResizedImageField(size=[2878, 1618], crop=['middle', 'center'], default='default_land.jpg', upload_to='landscape')
     # tallImage = ResizedImageField(size=[1618, 2878], crop=['middle', 'center'], default='default_tall.jpg', upload_to='tall')
 
     #Related Fields
-    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
+    #!category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
 
     #Utility Variable
     # uniqueId = models.CharField(null=True, blank=True, max_length=100)
