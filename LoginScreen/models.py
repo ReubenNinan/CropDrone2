@@ -13,9 +13,8 @@
 #     # desc = models.TextField(null = True), 
 
 from django.db import models
-from django.template.defaultfilters import slugify
 from django_resized import ResizedImageField
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import User
 
 class ImageData(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null = True)
