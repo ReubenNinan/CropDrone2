@@ -25,4 +25,4 @@ urlpatterns = [
     path('category/<str:title>/', views.DataPage, name='data-page'),
 
     url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}, name='csv_download')
-]
+] 
