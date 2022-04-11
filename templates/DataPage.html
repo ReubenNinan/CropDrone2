@@ -81,7 +81,7 @@
             <h1 class="h5">{{category}}</h1>
             
             {% for post in file %}
-            <a href={{post.file_download_path}} download>Download CSV File</a>
+            <a href={% url 'csv_download' post.url %}> <download>Download CSV File</download></a>
             {% endfor %}
             
           </div>

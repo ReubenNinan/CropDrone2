@@ -24,5 +24,5 @@ urlpatterns = [
     # not needed because I'm not doing a page for every specific image
     path('category/<str:title>/', views.DataPage, name='data-page'),
 
-    url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+    url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}, name='csv_download')
 ]
