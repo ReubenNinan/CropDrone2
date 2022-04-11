@@ -25,6 +25,10 @@ class ImageData(models.Model):
     squareImage = ResizedImageField(size=[1000, 1000], crop=['middle', 'center'], default='default_square.jpg', upload_to='DB Pictures')
     fileupload = models.FileField(upload_to='media\CSV Files')
 
+    @property
+    def file_download_path(self):
+        return str(self.fileupload.path) + str(".csv")
+
 
     # category = models.ForeignKey(ImageData, null=True, blank=True, on_delete=models.CASCADE)
 
