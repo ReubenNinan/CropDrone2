@@ -36,9 +36,9 @@ def DataPage(request, title):
     context = {}
     context['category'] = title #sending backend of image and category to the front so it's dynamically loaded with each category and image
     context['images'] = images
-    context['file'] = ImageData.fileupload.objects.all()
+    context['file'] = ImageData.objects.all()
+    # breakpoint()
     return render(request, 'DataPage.html', context)
-
 
 def Customer(request, slug_customer):
     obj = AuthUserModel.objects.get(username=request.user.username)
