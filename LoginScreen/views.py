@@ -36,7 +36,7 @@ def DataPage(request, title):
     context = {}
     context['category'] = title #sending backend of image and category to the front so it's dynamically loaded with each category and image
     context['images'] = images
-    context['file'] = ImageData.objects.all()
+    # context['file'] = ImageData.objects.all()
     return render(request, 'DataPage.html', context)
 
 
