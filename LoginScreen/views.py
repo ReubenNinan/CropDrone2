@@ -51,10 +51,12 @@ def Customer(request, slug_customer):
     return render(request, "CategoryPage.html", context)
 
 def download(request,path):
+    print("Hello there")
     file_path = os.path.join(settings.MEDIA_ROOT, path)
+    breakpoint()
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type = "application/fileupload")
+            response = HttpResponse(fh.read(), content_type = "application/csv")
             response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
             return response
 
