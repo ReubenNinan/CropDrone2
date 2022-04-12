@@ -27,7 +27,7 @@ class ImageData(models.Model):
 
     @property
     def file_download_path(self):
-        return str(self.fileupload.path) + str(".csv")
+        return str((self.fileupload.path)+".csv")
 
 
     # category = models.ForeignKey(ImageData, null=True, blank=True, on_delete=models.CASCADE)
