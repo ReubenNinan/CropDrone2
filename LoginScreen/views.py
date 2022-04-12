@@ -6,7 +6,7 @@ from django.shortcuts import render
 from .models import *
 from django.contrib.auth.models import User as AuthUserModel
 from django.db.models import Count
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, FileResponse
 from django.conf import settings
 import os
 
@@ -36,7 +36,7 @@ def DataPage(request, title):
     context = {}
     context['category'] = title #sending backend of image and category to the front so it's dynamically loaded with each category and image
     context['images'] = images
-    context['file'] = ImageData.objects.all()
+    # context['file'] = ImageData.objects.all()
     return render(request, 'DataPage.html', context)
 
 
@@ -50,12 +50,8 @@ def Customer(request, slug_customer):
     context['categories'] = categories #have pass your categories as context
     return render(request, "CategoryPage.html", context)
 
-def download(request,path):
-    file_path = os.path.join(settings.MEDIA_ROOT, path)
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type = "application/fileupload")
-            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
-            return response
-
-    raise Http404
+def download(request,id):
+    obj = ImageData.objects.get(id=int(id))
+    filename = obj.file_download_path
+    response = FileResponse(open(filename, 'rb'))
+    return response
