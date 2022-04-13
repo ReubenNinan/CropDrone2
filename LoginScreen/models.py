@@ -23,11 +23,11 @@ class ImageData(models.Model):
     description = models.TextField(null=True, blank=True)
     altText = models.TextField(null=True, blank=True)
     squareImage = ResizedImageField(size=[1000, 1000], crop=['middle', 'center'], default='default_square.jpg', upload_to='DB Pictures')
-    fileupload = models.FileField(null=True, upload_to='CSV Files')
+    fileupload = models.FileField(blank=True, upload_to='CSV Files')
 
     @property
     def file_download_path(self):
-        return str((self.fileupload.path)+".csv")
+        return str((self.fileupload.path))
 
 
     # category = models.ForeignKey(ImageData, null=True, blank=True, on_delete=models.CASCADE)
